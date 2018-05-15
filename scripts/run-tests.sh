@@ -237,4 +237,7 @@ EOM
 echo "Creating job in CloudCenter"
 CREATE_RESULT=`curl -s -k -X POST -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY} -d @/tmp/json "${CCC_URL}/v2/jobs"` 
 
-echo "Result of submit job API call: '${CREATE_RESULT}'"
+# echo "Result of submit job API call: '${CREATE_RESULT}'"
+JOB_ID="`echo $CREATE_RESULT | jq -r .id`"
+echo "Got job ID ${JOB_ID}"
+
