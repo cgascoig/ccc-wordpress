@@ -253,7 +253,7 @@ do
   echo -e "\nwaiting for HTTP to come up ..."
   sleep 5
   
-  ACCESS_LINK=`curl -s -k -X GET -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY}  "${CCC_URL}/v2/jobs/${JOB_ID}"|jq -r .accessLink`
+  ACCESS_LINK=`curl -s -k -X GET -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY}  "${CCC_URL}/v1/jobs/${JOB_ID}"|jq -r .accessLink`
   echo "Got access link ${ACCESS_LINK}"
   
   CONTENT=`curl -s -L ${ACCESS_LINK}`
@@ -263,7 +263,7 @@ do
     echo "Retrieved content from server: `echo $CONTENT|head` ..."
     
     
-    echo $CONTENT | grep "My Awesome Website" >/dev/null
+    echo $CONTENT | grep "My awesome website" >/dev/null
     if [ $? -eq 0 ]
     then
       echo "Correct content received"
