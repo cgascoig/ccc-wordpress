@@ -5,7 +5,9 @@ set +e
 echo "Executing run-tests.sh in ccc-wordpress"
 echo "Using CCC_URL $CCC_URL, CCC_USERNAME $CCC_USERNAME and CCC_KEY $CCC_KEY"
 
-echo "Using Git branch: GIT_BRANCH=$GIT_BRANCH GIT_LOCAL_BRANCH=$GIT_LOCAL_BRANCH"
+BRANCH_NAME=$(basename $GIT_BRANCH)
+
+echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
@@ -64,7 +66,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "GIT_TAG",
-                                "value": "${GIT_LOCAL_BRANCH}"
+                                "value": "${BRANCH_NAME}"
                         }
                 ],
                 "cloudParams": {
@@ -268,6 +270,9 @@ do
       STOP=1
       RESULT=0
     fi
+  else
+    # Sleep an extra 30 seconds since the servers haven't even started yet
+    sleep 30
   fi
   
   
