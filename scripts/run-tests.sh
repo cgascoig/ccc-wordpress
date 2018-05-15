@@ -233,6 +233,7 @@ cat > /tmp/json << EOM
 }
 EOM
 
+RESULT=0
 
 echo "Creating job in CloudCenter"
 CREATE_RESULT=`curl -s -k -X POST -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY} -d @/tmp/json "${CCC_URL}/v2/jobs"` 
@@ -240,4 +241,47 @@ CREATE_RESULT=`curl -s -k -X POST -H "Accept: application/json" -H "Content-Type
 # echo "Result of submit job API call: '${CREATE_RESULT}'"
 JOB_ID="`echo $CREATE_RESULT | jq -r .id`"
 echo "Got job ID ${JOB_ID}"
+
+COUNT=0
+STOP=0
+until [ $STOP -ne 0 ]
+do
+  echo -e "\nwaiting for HTTP to come up ..."
+  sleep 5
+  
+  ACCESS_LINK=`curl -s -k -X GET -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY}  "${CCC_URL}/v2/jobs/${JOB_ID}"|jq -r .accessLink`
+  echo "Got access link ${ACCESS_LINK}"
+  
+  CONTENT=`curl -s -L ${ACCESS_LINK}`
+  if [ $? -eq 0 ]
+  then
+    echo -e "\n\nHTTP connection successful"
+    echo "Retrieved content from server: `echo $CONTENT|head` ..."
+    
+    
+    echo $CONTENT | grep "My Awesome Website" >/dev/null
+    if [ $? -eq 0 ]
+    then
+      echo "Correct content received"
+      STOP=1
+      RESULT=0
+    fi
+  fi
+  
+  
+  let COUNT=COUNT+1
+  if [ $COUNT -gt 150 ]
+  then 
+    echo "Timed out waiting for HTTP to come up"
+    STOP=1
+    RESULT=1
+  fi
+done
+
+echo "Stopping stack ..."
+curl -s -k -X DELETE -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY}  "${CCC_URL}/v2/jobs/${JOB_ID}"
+
+echo "Exiting with result $RESULT"
+exit $RESULT
+
 
