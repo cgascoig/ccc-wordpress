@@ -291,5 +291,3 @@ curl -s -k -X DELETE -H "Accept: application/json" -H "Content-Type: application
 echo "Exiting with result $RESULT"
 exit $RESULT
 
-
-
