@@ -1,7 +1,6 @@
 #!/bin/sh
 
 set +e
-set +x
 
 echo "Executing prod-deploy.sh in ccc-wordpress"
 echo "Using CCC_URL $CCC_URL, CCC_USERNAME $CCC_USERNAME and CCC_KEY $CCC_KEY"
@@ -239,7 +238,7 @@ cat > /tmp/json << EOM
 EOM
 
 # Find job ID of any existing prod deployments
-EXISTING_DEPLOYMENTS=$(curl -s -g -k -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' -u cliqradmin:8514C2AFC45C2BEE '${CCC_URL}/v2/jobs?search=[deploymentEntity.name,el,prod]' |jq -r '.jobs[].id')
+EXISTING_DEPLOYMENTS=$(curl -s -g -k -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' -u ${CCC_USERNAME}:${CCC_KEY} '${CCC_URL}/v2/jobs?search=[deploymentEntity.name,el,prod]' |jq -r '.jobs[].id')
 echo "Found existing production deployment job IDs: ${EXISTING_DEPLOYMENTS}"
 
 RESULT=0
