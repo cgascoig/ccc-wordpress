@@ -77,7 +77,9 @@ cat > /tmp/json << EOM
         "jobs": [
                 {
                         "tierId": "32",
-                        "policyIds": null,
+                        "policyIds": [
+                                "1"
+                        ],
                         "tagIds": [],
                         "securityProfileIds": [],
                         "parameters": {
@@ -235,10 +237,11 @@ cat > /tmp/json << EOM
         ],
         "timeZone": "UTC"
 }
+
 EOM
 
 # Find job ID of any existing prod deployments
-EXISTING_DEPLOYMENTS=$(curl -s -g -k -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' -u ${CCC_USERNAME}:${CCC_KEY} '${CCC_URL}/v2/jobs?search=[deploymentEntity.name,el,prod]' |jq -r '.jobs[].id')
+EXISTING_DEPLOYMENTS=$(curl -s -g -k -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' -u ${CCC_USERNAME}:${CCC_KEY} "${CCC_URL}/v2/jobs?search=[deploymentEntity.name,el,prod]" |jq -r '.jobs[].id')
 echo "Found existing production deployment job IDs: ${EXISTING_DEPLOYMENTS}"
 
 RESULT=0
