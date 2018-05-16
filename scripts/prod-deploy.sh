@@ -3,7 +3,7 @@
 set +e
 set +x
 
-echo "Executing run-tests.sh in ccc-wordpress"
+echo "Executing prod-deploy.sh in ccc-wordpress"
 echo "Using CCC_URL $CCC_URL, CCC_USERNAME $CCC_USERNAME and CCC_KEY $CCC_KEY"
 
 BRANCH_NAME=$(basename $GIT_BRANCH)
@@ -14,7 +14,7 @@ cat > /tmp/json << EOM
 {
         "appId": "31",
         "appVersion": "2",
-        "name": "test-${BUILD_TAG}",
+        "name": "prod-${BUILD_TAG}",
         "metadatas": [
                 {
                         "namespace": "",
@@ -238,9 +238,13 @@ cat > /tmp/json << EOM
 }
 EOM
 
+# Find job ID of any existing prod deployments
+EXISTING_DEPLOYMENTS=$(curl -s -g -k -X GET -H 'Accept: application/json' -H 'Content-Type: application/json' -u cliqradmin:8514C2AFC45C2BEE '${CCC_URL}/v2/jobs?search=[deploymentEntity.name,el,prod]' |jq -r '.jobs[].id')
+echo "Found existing production deployment job IDs: ${EXISTING_DEPLOYMENTS}"
+
 RESULT=0
 
-echo "Creating job in CloudCenter"
+echo "Creating new production job in CloudCenter"
 CREATE_RESULT=`curl -s -k -X POST -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY} -d @/tmp/json "${CCC_URL}/v2/jobs"` 
 
 # echo "Result of submit job API call: '${CREATE_RESULT}'"
@@ -267,7 +271,7 @@ do
     echo $CONTENT | grep "My awesome website" >/dev/null
     if [ $? -eq 0 ]
     then
-      echo "Correct content received"
+      echo "Correct content received - new production job is ready!"
       STOP=1
       RESULT=0
     fi
@@ -286,8 +290,11 @@ do
   fi
 done
 
-echo "Stopping stack ..."
-curl -s -k -X DELETE -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY}  "${CCC_URL}/v2/jobs/${JOB_ID}"
+echo "Stopping old production job(s) ..."
+for OLD_JOB_ID in $EXISTING_DEPLOYMENTS
+do
+  curl -s -k -X DELETE -H "Accept: application/json" -H "Content-Type: application/json" -u ${CCC_USERNAME}:${CCC_KEY}  "${CCC_URL}/v2/jobs/${OLD_JOB_ID}"
+done
 
 echo "Exiting with result $RESULT"
 exit $RESULT
