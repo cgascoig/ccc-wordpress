@@ -11,7 +11,7 @@ echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
-        "appId": "31",
+        "appId": "29",
         "appVersion": "2",
         "name": "prod-${BUILD_TAG}",
         "metadatas": [
@@ -46,7 +46,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_HOST",
-                                "value": "10.152.0.8"
+                                "value": "10.1.1.7"
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_PORT",
@@ -62,7 +62,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_ACCESS_KEY",
-                                "value": "d939e547-0a93-468d-9107-f1044becad38"
+                                "value": "c27ee84f-1de2-47e1-a2fe-e018b7ee5c3e"
                         },
                         {
                                 "name": "GIT_TAG",
@@ -76,10 +76,10 @@ cat > /tmp/json << EOM
         },
         "jobs": [
                 {
-                        "tierId": "32",
+                        "tierId": "30",
                         "policyIds": [
-                                 "1"
-                         ],
+                                "1"
+                        ],
                         "tagIds": [],
                         "securityProfileIds": [],
                         "parameters": {
@@ -120,8 +120,8 @@ cat > /tmp/json << EOM
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:ccc-net",
-                                                        "id": "ccc-subnet",
+                                                        "netId": "ccc-managed:default",
+                                                        "id": "default",
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
@@ -131,7 +131,7 @@ cat > /tmp/json << EOM
                         "numNodesToLaunch": 1
                 },
                 {
-                        "tierId": "33",
+                        "tierId": "31",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -173,8 +173,8 @@ cat > /tmp/json << EOM
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:ccc-net",
-                                                        "id": "ccc-subnet",
+                                                        "netId": "ccc-managed:default",
+                                                        "id": "default",
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
@@ -183,7 +183,7 @@ cat > /tmp/json << EOM
                         }
                 },
                 {
-                        "tierId": "34",
+                        "tierId": "32",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -225,8 +225,8 @@ cat > /tmp/json << EOM
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:ccc-net",
-                                                        "id": "ccc-subnet",
+                                                        "netId": "ccc-managed:default",
+                                                        "id": "default",
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
@@ -237,7 +237,6 @@ cat > /tmp/json << EOM
         ],
         "timeZone": "UTC"
 }
-
 
 EOM
 
