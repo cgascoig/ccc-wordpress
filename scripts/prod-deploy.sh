@@ -46,11 +46,11 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_HOST",
-                                "value": "35.190.44.42"
+                                "value": "10.152.0.8"
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_PORT",
-                                "value": "80"
+                                "value": "8090"
                         },
                         {
                                 "name": "APPD_CONF_APP",
@@ -62,7 +62,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_ACCESS_KEY",
-                                "value": "1904e9f4-0f3b-4407-9fbe-565384c7ed17"
+                                "value": "d939e547-0a93-468d-9107-f1044becad38"
                         },
                         {
                                 "name": "GIT_TAG",
@@ -78,8 +78,8 @@ cat > /tmp/json << EOM
                 {
                         "tierId": "32",
                         "policyIds": [
-                                "1"
-                        ],
+                                 "1"
+                         ],
                         "tagIds": [],
                         "securityProfileIds": [],
                         "parameters": {
@@ -125,7 +125,7 @@ cat > /tmp/json << EOM
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
-                                        "instance": "f1-micro"
+                                        "instance": "g1-small"
                                 }
                         },
                         "numNodesToLaunch": 1
@@ -178,7 +178,7 @@ cat > /tmp/json << EOM
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
-                                        "instance": "f1-micro"
+                                        "instance": "g1-small"
                                 }
                         }
                 },
@@ -230,13 +230,14 @@ cat > /tmp/json << EOM
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
-                                        "instance": "f1-micro"
+                                        "instance": "g1-small"
                                 }
                         }
                 }
         ],
         "timeZone": "UTC"
 }
+
 
 EOM
 
