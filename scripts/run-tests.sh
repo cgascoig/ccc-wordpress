@@ -12,7 +12,7 @@ echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
-        "appId": "31",
+        "appId": "29",
         "appVersion": "2",
         "name": "test-${BUILD_TAG}",
         "metadatas": [
@@ -47,11 +47,11 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_HOST",
-                                "value": "35.190.44.42"
+                                "value": "10.1.1.1"
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_PORT",
-                                "value": "80"
+                                "value": "8090"
                         },
                         {
                                 "name": "APPD_CONF_APP",
@@ -63,7 +63,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_ACCESS_KEY",
-                                "value": "1904e9f4-0f3b-4407-9fbe-565384c7ed17"
+                                "value": "1"
                         },
                         {
                                 "name": "GIT_TAG",
@@ -76,6 +76,111 @@ cat > /tmp/json << EOM
                 }
         },
         "jobs": [
+                {
+                        "tierId": "30",
+                        "policyIds": null,
+                        "tagIds": [],
+                        "securityProfileIds": [],
+                        "parameters": {
+                                "appParams": [
+                                        {
+                                                "name": "referredJob",
+                                                "value": ""
+                                        },
+                                        {
+                                                "name": "SSHPreference",
+                                                "value": "NO_PREFERENCE"
+                                        }
+                                ],
+                                "envParams": [],
+                                "cloudParams": {
+                                        "cloudRegionId": "1",
+                                        "accountId": "1",
+                                        "volumes": [
+                                                {
+                                                        "name": "RootVolume",
+                                                        "bootable": true,
+                                                        "size": 0,
+                                                        "type": "pd-standard",
+                                                        "iops": null
+                                                }
+                                        ],
+                                        "rootVolumeSize": "0",
+                                        "cloudProperties": [
+                                                {
+                                                        "name": "LaunchZone",
+                                                        "value": "australia-southeast1-c"
+                                                },
+                                                {
+                                                        "name": "projectName",
+                                                        "value": "ccc-managed"
+                                                }
+                                        ],
+                                        "nics": [
+                                                {
+                                                        "order": 1,
+                                                        "netId": "ccc-managed:default",
+                                                        "id": "default",
+                                                        "allocatePublicIp": "true"
+                                                }
+                                        ],
+                                        "instance": "g1-small"
+                                }
+                        },
+                        "numNodesToLaunch": 1
+                },
+                {
+                        "tierId": "31",
+                        "policyIds": null,
+                        "tagIds": [],
+                        "securityProfileIds": [],
+                        "parameters": {
+                                "appParams": [
+                                        {
+                                                "name": "referredJob",
+                                                "value": ""
+                                        },
+                                        {
+                                                "name": "SSHPreference",
+                                                "value": "NO_PREFERENCE"
+                                        }
+                                ],
+                                "envParams": [],
+                                "cloudParams": {
+                                        "cloudRegionId": "1",
+                                        "accountId": "1",
+                                        "volumes": [
+                                                {
+                                                        "name": "RootVolume",
+                                                        "bootable": true,
+                                                        "size": 0,
+                                                        "type": "pd-standard",
+                                                        "iops": null
+                                                }
+                                        ],
+                                        "rootVolumeSize": "0",
+                                        "cloudProperties": [
+                                                {
+                                                        "name": "LaunchZone",
+                                                        "value": "australia-southeast1-c"
+                                                },
+                                                {
+                                                        "name": "projectName",
+                                                        "value": "ccc-managed"
+                                                }
+                                        ],
+                                        "nics": [
+                                                {
+                                                        "order": 1,
+                                                        "netId": "ccc-managed:default",
+                                                        "id": "default",
+                                                        "allocatePublicIp": "true"
+                                                }
+                                        ],
+                                        "instance": "g1-small"
+                                }
+                        }
+                },
                 {
                         "tierId": "32",
                         "policyIds": null,
@@ -119,117 +224,12 @@ cat > /tmp/json << EOM
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:ccc-net",
-                                                        "id": "ccc-subnet",
+                                                        "netId": "ccc-managed:default",
+                                                        "id": "default",
                                                         "allocatePublicIp": "true"
                                                 }
                                         ],
-                                        "instance": "f1-micro"
-                                }
-                        },
-                        "numNodesToLaunch": 1
-                },
-                {
-                        "tierId": "33",
-                        "policyIds": null,
-                        "tagIds": [],
-                        "securityProfileIds": [],
-                        "parameters": {
-                                "appParams": [
-                                        {
-                                                "name": "referredJob",
-                                                "value": ""
-                                        },
-                                        {
-                                                "name": "SSHPreference",
-                                                "value": "NO_PREFERENCE"
-                                        }
-                                ],
-                                "envParams": [],
-                                "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
-                                        "volumes": [
-                                                {
-                                                        "name": "RootVolume",
-                                                        "bootable": true,
-                                                        "size": 0,
-                                                        "type": "pd-standard",
-                                                        "iops": null
-                                                }
-                                        ],
-                                        "rootVolumeSize": "0",
-                                        "cloudProperties": [
-                                                {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
-                                                },
-                                                {
-                                                        "name": "projectName",
-                                                        "value": "ccc-managed"
-                                                }
-                                        ],
-                                        "nics": [
-                                                {
-                                                        "order": 1,
-                                                        "netId": "ccc-managed:ccc-net",
-                                                        "id": "ccc-subnet",
-                                                        "allocatePublicIp": "true"
-                                                }
-                                        ],
-                                        "instance": "f1-micro"
-                                }
-                        }
-                },
-                {
-                        "tierId": "34",
-                        "policyIds": null,
-                        "tagIds": [],
-                        "securityProfileIds": [],
-                        "parameters": {
-                                "appParams": [
-                                        {
-                                                "name": "referredJob",
-                                                "value": ""
-                                        },
-                                        {
-                                                "name": "SSHPreference",
-                                                "value": "NO_PREFERENCE"
-                                        }
-                                ],
-                                "envParams": [],
-                                "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
-                                        "volumes": [
-                                                {
-                                                        "name": "RootVolume",
-                                                        "bootable": true,
-                                                        "size": 0,
-                                                        "type": "pd-standard",
-                                                        "iops": null
-                                                }
-                                        ],
-                                        "rootVolumeSize": "0",
-                                        "cloudProperties": [
-                                                {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
-                                                },
-                                                {
-                                                        "name": "projectName",
-                                                        "value": "ccc-managed"
-                                                }
-                                        ],
-                                        "nics": [
-                                                {
-                                                        "order": 1,
-                                                        "netId": "ccc-managed:ccc-net",
-                                                        "id": "ccc-subnet",
-                                                        "allocatePublicIp": "true"
-                                                }
-                                        ],
-                                        "instance": "f1-micro"
+                                        "instance": "g1-small"
                                 }
                         }
                 }
