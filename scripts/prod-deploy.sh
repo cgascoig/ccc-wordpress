@@ -11,7 +11,7 @@ echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
-        "appId": "29",
+        "appId": "94",
         "appVersion": "2",
         "name": "prod-${BUILD_TAG}",
         "metadatas": [
@@ -24,7 +24,9 @@ cat > /tmp/json << EOM
                 }
         ],
         "environmentId": "1",
-        "tagIds": [],
+        "tagIds": [
+                2
+        ],
         "securityProfileIds": [],
         "agingPolicyId": null,
         "suspensionPolicyId": null,
@@ -46,11 +48,11 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_HOST",
-                                "value": "10.1.1.7"
+                                "value": "35.227.250.16"
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_PORT",
-                                "value": "8090"
+                                "value": "80"
                         },
                         {
                                 "name": "APPD_CONF_APP",
@@ -62,7 +64,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_ACCESS_KEY",
-                                "value": "c27ee84f-1de2-47e1-a2fe-e018b7ee5c3e"
+                                "value": "31086ce7-8846-4daa-b744-2cad69b078b0"
                         },
                         {
                                 "name": "GIT_TAG",
@@ -70,16 +72,14 @@ cat > /tmp/json << EOM
                         }
                 ],
                 "cloudParams": {
-                        "cloudRegionId": "1",
-                        "accountId": "1"
+                        "cloudRegionId": "2",
+                        "accountId": "2"
                 }
         },
         "jobs": [
                 {
-                        "tierId": "30",
-                        "policyIds": [
-                                "1"
-                        ],
+                        "tierId": "95",
+                        "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
                         "parameters": {
@@ -95,43 +95,56 @@ cat > /tmp/json << EOM
                                 ],
                                 "envParams": [],
                                 "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
+                                        "cloudRegionId": "2",
+                                        "accountId": "2",
                                         "volumes": [
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
-                                                        "size": 0,
-                                                        "type": "pd-standard",
+                                                        "size": null,
+                                                        "type": null,
                                                         "iops": null
                                                 }
                                         ],
                                         "rootVolumeSize": "0",
+                                        "networkTypeName": "Production",
                                         "cloudProperties": [
                                                 {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
+                                                        "name": "FullClone",
+                                                        "value": "true"
                                                 },
                                                 {
-                                                        "name": "projectName",
-                                                        "value": "ccc-managed"
-                                                }
-                                        ],
-                                        "nics": [
+                                                        "name": "UserDatastoreCluster",
+                                                        "value": "Data.28"
+                                                },
                                                 {
-                                                        "order": 1,
-                                                        "netId": "ccc-managed:default",
-                                                        "id": "default",
-                                                        "allocatePublicIp": "true"
+                                                        "name": "UserDataCenterName",
+                                                        "value": "infra"
+                                                },
+                                                {
+                                                        "name": "UserClusterName",
+                                                        "value": "DMZ"
+                                                },
+                                                {
+                                                        "name": "UserDatastore",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserResourcePoolName",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserTargetDeploymentFolder",
+                                                        "value": "/CloudCenter-grscarle"
                                                 }
                                         ],
-                                        "instance": "g1-small"
+                                        "instance": "Silver"
                                 }
                         },
                         "numNodesToLaunch": 1
                 },
                 {
-                        "tierId": "31",
+                        "tierId": "96",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -148,42 +161,55 @@ cat > /tmp/json << EOM
                                 ],
                                 "envParams": [],
                                 "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
+                                        "cloudRegionId": "2",
+                                        "accountId": "2",
                                         "volumes": [
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
-                                                        "size": 0,
-                                                        "type": "pd-standard",
+                                                        "size": null,
+                                                        "type": null,
                                                         "iops": null
                                                 }
                                         ],
                                         "rootVolumeSize": "0",
+                                        "networkTypeName": "Production",
                                         "cloudProperties": [
                                                 {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
+                                                        "name": "FullClone",
+                                                        "value": "true"
                                                 },
                                                 {
-                                                        "name": "projectName",
-                                                        "value": "ccc-managed"
-                                                }
-                                        ],
-                                        "nics": [
+                                                        "name": "UserDatastoreCluster",
+                                                        "value": "Data.28"
+                                                },
                                                 {
-                                                        "order": 1,
-                                                        "netId": "ccc-managed:default",
-                                                        "id": "default",
-                                                        "allocatePublicIp": "true"
+                                                        "name": "UserDataCenterName",
+                                                        "value": "infra"
+                                                },
+                                                {
+                                                        "name": "UserClusterName",
+                                                        "value": "DMZ"
+                                                },
+                                                {
+                                                        "name": "UserDatastore",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserResourcePoolName",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserTargetDeploymentFolder",
+                                                        "value": "/CloudCenter-grscarle"
                                                 }
                                         ],
-                                        "instance": "g1-small"
+                                        "instance": "Silver"
                                 }
                         }
                 },
                 {
-                        "tierId": "32",
+                        "tierId": "97",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -200,42 +226,55 @@ cat > /tmp/json << EOM
                                 ],
                                 "envParams": [],
                                 "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
+                                        "cloudRegionId": "2",
+                                        "accountId": "2",
                                         "volumes": [
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
-                                                        "size": 0,
-                                                        "type": "pd-standard",
+                                                        "size": null,
+                                                        "type": null,
                                                         "iops": null
                                                 }
                                         ],
                                         "rootVolumeSize": "0",
+                                        "networkTypeName": "Production",
                                         "cloudProperties": [
                                                 {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
+                                                        "name": "FullClone",
+                                                        "value": "true"
                                                 },
                                                 {
-                                                        "name": "projectName",
-                                                        "value": "ccc-managed"
-                                                }
-                                        ],
-                                        "nics": [
+                                                        "name": "UserDatastoreCluster",
+                                                        "value": "Data.28"
+                                                },
                                                 {
-                                                        "order": 1,
-                                                        "netId": "ccc-managed:default",
-                                                        "id": "default",
-                                                        "allocatePublicIp": "true"
+                                                        "name": "UserDataCenterName",
+                                                        "value": "infra"
+                                                },
+                                                {
+                                                        "name": "UserClusterName",
+                                                        "value": "DMZ"
+                                                },
+                                                {
+                                                        "name": "UserDatastore",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserResourcePoolName",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserTargetDeploymentFolder",
+                                                        "value": "/CloudCenter-grscarle"
                                                 }
                                         ],
-                                        "instance": "g1-small"
+                                        "instance": "Silver"
                                 }
                         }
                 }
         ],
-        "timeZone": "UTC"
+        "timeZone": "GMT+10:00"
 }
 
 EOM

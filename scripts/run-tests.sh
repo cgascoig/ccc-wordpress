@@ -12,7 +12,7 @@ echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
-        "appId": "29",
+        "appId": "94",
         "appVersion": "2",
         "name": "test-${BUILD_TAG}",
         "metadatas": [
@@ -24,8 +24,10 @@ cat > /tmp/json << EOM
                         "required": true
                 }
         ],
-        "environmentId": "1",
-        "tagIds": [],
+        "environmentId": "2",
+        "tagIds": [
+                3
+        ],
         "securityProfileIds": [],
         "agingPolicyId": null,
         "suspensionPolicyId": null,
@@ -47,11 +49,11 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_HOST",
-                                "value": "10.1.1.1"
+                                "value": "35.227.250.16"
                         },
                         {
                                 "name": "APPD_CONF_CONTROLLER_PORT",
-                                "value": "8090"
+                                "value": "80"
                         },
                         {
                                 "name": "APPD_CONF_APP",
@@ -63,7 +65,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_ACCESS_KEY",
-                                "value": "1"
+                                "value": "31086ce7-8846-4daa-b744-2cad69b078b0"
                         },
                         {
                                 "name": "GIT_TAG",
@@ -71,13 +73,13 @@ cat > /tmp/json << EOM
                         }
                 ],
                 "cloudParams": {
-                        "cloudRegionId": "1",
-                        "accountId": "1"
+                        "cloudRegionId": "3",
+                        "accountId": "3"
                 }
         },
         "jobs": [
                 {
-                        "tierId": "30",
+                        "tierId": "95",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -94,14 +96,14 @@ cat > /tmp/json << EOM
                                 ],
                                 "envParams": [],
                                 "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
+                                        "cloudRegionId": "3",
+                                        "accountId": "3",
                                         "volumes": [
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
                                                         "size": 0,
-                                                        "type": "pd-standard",
+                                                        "type": null,
                                                         "iops": null
                                                 }
                                         ],
@@ -109,19 +111,19 @@ cat > /tmp/json << EOM
                                         "cloudProperties": [
                                                 {
                                                         "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
+                                                        "value": "australia-southeast1-b"
                                                 },
                                                 {
                                                         "name": "projectName",
-                                                        "value": "ccc-managed"
+                                                        "value": "cloudcenter-188704"
                                                 }
                                         ],
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:default",
-                                                        "id": "default",
-                                                        "allocatePublicIp": "true"
+                                                        "netId": "cloudcenter-188704:cloudcenter",
+                                                        "id": "cloudcenter",
+                                                        "allocatePublicIp": "false"
                                                 }
                                         ],
                                         "instance": "g1-small"
@@ -130,7 +132,7 @@ cat > /tmp/json << EOM
                         "numNodesToLaunch": 1
                 },
                 {
-                        "tierId": "31",
+                        "tierId": "96",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -147,14 +149,14 @@ cat > /tmp/json << EOM
                                 ],
                                 "envParams": [],
                                 "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
+                                        "cloudRegionId": "3",
+                                        "accountId": "3",
                                         "volumes": [
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
                                                         "size": 0,
-                                                        "type": "pd-standard",
+                                                        "type": null,
                                                         "iops": null
                                                 }
                                         ],
@@ -162,19 +164,19 @@ cat > /tmp/json << EOM
                                         "cloudProperties": [
                                                 {
                                                         "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
+                                                        "value": "australia-southeast1-b"
                                                 },
                                                 {
                                                         "name": "projectName",
-                                                        "value": "ccc-managed"
+                                                        "value": "cloudcenter-188704"
                                                 }
                                         ],
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:default",
-                                                        "id": "default",
-                                                        "allocatePublicIp": "true"
+                                                        "netId": "cloudcenter-188704:cloudcenter",
+                                                        "id": "cloudcenter",
+                                                        "allocatePublicIp": "false"
                                                 }
                                         ],
                                         "instance": "g1-small"
@@ -182,7 +184,7 @@ cat > /tmp/json << EOM
                         }
                 },
                 {
-                        "tierId": "32",
+                        "tierId": "97",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -199,14 +201,14 @@ cat > /tmp/json << EOM
                                 ],
                                 "envParams": [],
                                 "cloudParams": {
-                                        "cloudRegionId": "1",
-                                        "accountId": "1",
+                                        "cloudRegionId": "3",
+                                        "accountId": "3",
                                         "volumes": [
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
                                                         "size": 0,
-                                                        "type": "pd-standard",
+                                                        "type": null,
                                                         "iops": null
                                                 }
                                         ],
@@ -214,19 +216,19 @@ cat > /tmp/json << EOM
                                         "cloudProperties": [
                                                 {
                                                         "name": "LaunchZone",
-                                                        "value": "australia-southeast1-c"
+                                                        "value": "australia-southeast1-b"
                                                 },
                                                 {
                                                         "name": "projectName",
-                                                        "value": "ccc-managed"
+                                                        "value": "cloudcenter-188704"
                                                 }
                                         ],
                                         "nics": [
                                                 {
                                                         "order": 1,
-                                                        "netId": "ccc-managed:default",
-                                                        "id": "default",
-                                                        "allocatePublicIp": "true"
+                                                        "netId": "cloudcenter-188704:cloudcenter",
+                                                        "id": "cloudcenter",
+                                                        "allocatePublicIp": "false"
                                                 }
                                         ],
                                         "instance": "g1-small"
@@ -234,8 +236,9 @@ cat > /tmp/json << EOM
                         }
                 }
         ],
-        "timeZone": "UTC"
+        "timeZone": "GMT+10:00"
 }
+
 EOM
 
 RESULT=0
