@@ -111,7 +111,7 @@ cat > /tmp/json << EOM
                                         "cloudProperties": [
                                                 {
                                                         "name": "FullClone",
-                                                        "value": "true"
+                                                        "value": "false"
                                                 },
                                                 {
                                                         "name": "UserDatastoreCluster",
@@ -177,7 +177,7 @@ cat > /tmp/json << EOM
                                         "cloudProperties": [
                                                 {
                                                         "name": "FullClone",
-                                                        "value": "true"
+                                                        "value": "false"
                                                 },
                                                 {
                                                         "name": "UserDatastoreCluster",
@@ -242,7 +242,7 @@ cat > /tmp/json << EOM
                                         "cloudProperties": [
                                                 {
                                                         "name": "FullClone",
-                                                        "value": "true"
+                                                        "value": "false"
                                                 },
                                                 {
                                                         "name": "UserDatastoreCluster",
