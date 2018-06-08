@@ -9,6 +9,7 @@ BRANCH_NAME=$(basename $GIT_BRANCH)
 
 echo "Using Git branch: ${BRANCH_NAME}"
 
+
 cat > /tmp/json << EOM
 {
         "appId": "94",
