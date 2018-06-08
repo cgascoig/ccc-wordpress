@@ -55,6 +55,10 @@ cat > /tmp/json << EOM
                                 "value": "80"
                         },
                         {
+                                "name": "APPD_INSTALLER_URL",
+                                "value": "http://10.1.1.2/appdynamics-php-agent.x86_64.rpm"
+                        },
+                        {
                                 "name": "APPD_CONF_APP",
                                 "value": "MyAwesomeWebsite"
                         },
