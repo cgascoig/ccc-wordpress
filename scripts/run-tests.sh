@@ -12,7 +12,7 @@ echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
-        "appId": "94",
+        "appId": "102",
         "appVersion": "2",
         "name": "test-${BUILD_TAG}",
         "metadatas": [
@@ -56,6 +56,10 @@ cat > /tmp/json << EOM
                                 "value": "80"
                         },
                         {
+                                "name": "APPD_INSTALLER_URL",
+                                "value": ""
+                        },
+                        {
                                 "name": "APPD_CONF_APP",
                                 "value": "MyAwesomeWebsite"
                         },
@@ -65,7 +69,7 @@ cat > /tmp/json << EOM
                         },
                         {
                                 "name": "APPD_CONF_ACCESS_KEY",
-                                "value": "31086ce7-8846-4daa-b744-2cad69b078b0"
+                                "value": "fd"
                         },
                         {
                                 "name": "GIT_TAG",
@@ -79,7 +83,111 @@ cat > /tmp/json << EOM
         },
         "jobs": [
                 {
-                        "tierId": "95",
+                        "tierId": "104",
+                        "policyIds": null,
+                        "tagIds": [],
+                        "securityProfileIds": [],
+                        "parameters": {
+                                "appParams": [
+                                        {
+                                                "name": "referredJob",
+                                                "value": ""
+                                        },
+                                        {
+                                                "name": "SSHPreference",
+                                                "value": "NO_PREFERENCE"
+                                        }
+                                ],
+                                "envParams": [],
+                                "cloudParams": {
+                                        "cloudRegionId": "3",
+                                        "accountId": "3",
+                                        "volumes": [
+                                                {
+                                                        "name": "RootVolume",
+                                                        "bootable": true,
+                                                        "size": 0,
+                                                        "type": null,
+                                                        "iops": null
+                                                }
+                                        ],
+                                        "rootVolumeSize": "0",
+                                        "cloudProperties": [
+                                                {
+                                                        "name": "LaunchZone",
+                                                        "value": "australia-southeast1-b"
+                                                },
+                                                {
+                                                        "name": "projectName",
+                                                        "value": "cloudcenter-188704"
+                                                }
+                                        ],
+                                        "nics": [
+                                                {
+                                                        "order": 1,
+                                                        "netId": "cloudcenter-188704:cloudcenter",
+                                                        "id": "cloudcenter",
+                                                        "allocatePublicIp": "false"
+                                                }
+                                        ],
+                                        "instance": "g1-small"
+                                }
+                        }
+                },
+                {
+                        "tierId": "105",
+                        "policyIds": null,
+                        "tagIds": [],
+                        "securityProfileIds": [],
+                        "parameters": {
+                                "appParams": [
+                                        {
+                                                "name": "referredJob",
+                                                "value": ""
+                                        },
+                                        {
+                                                "name": "SSHPreference",
+                                                "value": "NO_PREFERENCE"
+                                        }
+                                ],
+                                "envParams": [],
+                                "cloudParams": {
+                                        "cloudRegionId": "3",
+                                        "accountId": "3",
+                                        "volumes": [
+                                                {
+                                                        "name": "RootVolume",
+                                                        "bootable": true,
+                                                        "size": 0,
+                                                        "type": null,
+                                                        "iops": null
+                                                }
+                                        ],
+                                        "rootVolumeSize": "0",
+                                        "cloudProperties": [
+                                                {
+                                                        "name": "LaunchZone",
+                                                        "value": "australia-southeast1-b"
+                                                },
+                                                {
+                                                        "name": "projectName",
+                                                        "value": "cloudcenter-188704"
+                                                }
+                                        ],
+                                        "nics": [
+                                                {
+                                                        "order": 1,
+                                                        "netId": "cloudcenter-188704:cloudcenter",
+                                                        "id": "cloudcenter",
+                                                        "allocatePublicIp": "false"
+                                                }
+                                        ],
+                                        "instance": "g1-small"
+                                }
+                        }
+                },
+                {
+                        "tierId": "106",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -130,115 +238,10 @@ cat > /tmp/json << EOM
                                 }
                         },
                         "numNodesToLaunch": 1
-                },
-                {
-                        "tierId": "96",
-                        "policyIds": null,
-                        "tagIds": [],
-                        "securityProfileIds": [],
-                        "parameters": {
-                                "appParams": [
-                                        {
-                                                "name": "referredJob",
-                                                "value": ""
-                                        },
-                                        {
-                                                "name": "SSHPreference",
-                                                "value": "NO_PREFERENCE"
-                                        }
-                                ],
-                                "envParams": [],
-                                "cloudParams": {
-                                        "cloudRegionId": "3",
-                                        "accountId": "3",
-                                        "volumes": [
-                                                {
-                                                        "name": "RootVolume",
-                                                        "bootable": true,
-                                                        "size": 0,
-                                                        "type": null,
-                                                        "iops": null
-                                                }
-                                        ],
-                                        "rootVolumeSize": "0",
-                                        "cloudProperties": [
-                                                {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-b"
-                                                },
-                                                {
-                                                        "name": "projectName",
-                                                        "value": "cloudcenter-188704"
-                                                }
-                                        ],
-                                        "nics": [
-                                                {
-                                                        "order": 1,
-                                                        "netId": "cloudcenter-188704:cloudcenter",
-                                                        "id": "cloudcenter",
-                                                        "allocatePublicIp": "false"
-                                                }
-                                        ],
-                                        "instance": "g1-small"
-                                }
-                        }
-                },
-                {
-                        "tierId": "97",
-                        "policyIds": null,
-                        "tagIds": [],
-                        "securityProfileIds": [],
-                        "parameters": {
-                                "appParams": [
-                                        {
-                                                "name": "referredJob",
-                                                "value": ""
-                                        },
-                                        {
-                                                "name": "SSHPreference",
-                                                "value": "NO_PREFERENCE"
-                                        }
-                                ],
-                                "envParams": [],
-                                "cloudParams": {
-                                        "cloudRegionId": "3",
-                                        "accountId": "3",
-                                        "volumes": [
-                                                {
-                                                        "name": "RootVolume",
-                                                        "bootable": true,
-                                                        "size": 0,
-                                                        "type": null,
-                                                        "iops": null
-                                                }
-                                        ],
-                                        "rootVolumeSize": "0",
-                                        "cloudProperties": [
-                                                {
-                                                        "name": "LaunchZone",
-                                                        "value": "australia-southeast1-b"
-                                                },
-                                                {
-                                                        "name": "projectName",
-                                                        "value": "cloudcenter-188704"
-                                                }
-                                        ],
-                                        "nics": [
-                                                {
-                                                        "order": 1,
-                                                        "netId": "cloudcenter-188704:cloudcenter",
-                                                        "id": "cloudcenter",
-                                                        "allocatePublicIp": "false"
-                                                }
-                                        ],
-                                        "instance": "g1-small"
-                                }
-                        }
                 }
         ],
         "timeZone": "GMT+10:00"
 }
-
 EOM
 
 RESULT=0

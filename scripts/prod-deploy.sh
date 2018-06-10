@@ -12,7 +12,7 @@ echo "Using Git branch: ${BRANCH_NAME}"
 
 cat > /tmp/json << EOM
 {
-        "appId": "94",
+        "appId": "102",
         "appVersion": "2",
         "name": "prod-${BUILD_TAG}",
         "metadatas": [
@@ -83,7 +83,7 @@ cat > /tmp/json << EOM
         },
         "jobs": [
                 {
-                        "tierId": "95",
+                        "tierId": "104",
                         "policyIds": null,
                         "tagIds": [],
                         "securityProfileIds": [],
@@ -106,7 +106,7 @@ cat > /tmp/json << EOM
                                                 {
                                                         "name": "RootVolume",
                                                         "bootable": true,
-                                                        "size": null,
+                                                        "size": 0,
                                                         "type": null,
                                                         "iops": null
                                                 }
@@ -120,7 +120,137 @@ cat > /tmp/json << EOM
                                                 },
                                                 {
                                                         "name": "UserDatastoreCluster",
-                                                        "value": "Data.28"
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserDataCenterName",
+                                                        "value": "infra"
+                                                },
+                                                {
+                                                        "name": "UserClusterName",
+                                                        "value": "DMZ"
+                                                },
+                                                {
+                                                        "name": "UserDatastore",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserResourcePoolName",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserTargetDeploymentFolder",
+                                                        "value": "/CloudCenter-grscarle"
+                                                }
+                                        ],
+                                        "instance": "Silver"
+                                }
+                        }
+                },
+                {
+                        "tierId": "105",
+                        "policyIds": null,
+                        "tagIds": [],
+                        "securityProfileIds": [],
+                        "parameters": {
+                                "appParams": [
+                                        {
+                                                "name": "referredJob",
+                                                "value": ""
+                                        },
+                                        {
+                                                "name": "SSHPreference",
+                                                "value": "NO_PREFERENCE"
+                                        }
+                                ],
+                                "envParams": [],
+                                "cloudParams": {
+                                        "cloudRegionId": "2",
+                                        "accountId": "2",
+                                        "volumes": [
+                                                {
+                                                        "name": "RootVolume",
+                                                        "bootable": true,
+                                                        "size": 0,
+                                                        "type": null,
+                                                        "iops": null
+                                                }
+                                        ],
+                                        "rootVolumeSize": "0",
+                                        "networkTypeName": "Production",
+                                        "cloudProperties": [
+                                                {
+                                                        "name": "FullClone",
+                                                        "value": "false"
+                                                },
+                                                {
+                                                        "name": "UserDatastoreCluster",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserDataCenterName",
+                                                        "value": "infra"
+                                                },
+                                                {
+                                                        "name": "UserClusterName",
+                                                        "value": "DMZ"
+                                                },
+                                                {
+                                                        "name": "UserDatastore",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserResourcePoolName",
+                                                        "value": ""
+                                                },
+                                                {
+                                                        "name": "UserTargetDeploymentFolder",
+                                                        "value": "/CloudCenter-grscarle"
+                                                }
+                                        ],
+                                        "instance": "Silver"
+                                }
+                        }
+                },
+                {
+                        "tierId": "106",
+                        "policyIds": null,
+                        "tagIds": [],
+                        "securityProfileIds": [],
+                        "parameters": {
+                                "appParams": [
+                                        {
+                                                "name": "referredJob",
+                                                "value": ""
+                                        },
+                                        {
+                                                "name": "SSHPreference",
+                                                "value": "NO_PREFERENCE"
+                                        }
+                                ],
+                                "envParams": [],
+                                "cloudParams": {
+                                        "cloudRegionId": "2",
+                                        "accountId": "2",
+                                        "volumes": [
+                                                {
+                                                        "name": "RootVolume",
+                                                        "bootable": true,
+                                                        "size": 0,
+                                                        "type": null,
+                                                        "iops": null
+                                                }
+                                        ],
+                                        "rootVolumeSize": "0",
+                                        "networkTypeName": "Production",
+                                        "cloudProperties": [
+                                                {
+                                                        "name": "FullClone",
+                                                        "value": "false"
+                                                },
+                                                {
+                                                        "name": "UserDatastoreCluster",
+                                                        "value": ""
                                                 },
                                                 {
                                                         "name": "UserDataCenterName",
@@ -147,136 +277,6 @@ cat > /tmp/json << EOM
                                 }
                         },
                         "numNodesToLaunch": 1
-                },
-                {
-                        "tierId": "96",
-                        "policyIds": null,
-                        "tagIds": [],
-                        "securityProfileIds": [],
-                        "parameters": {
-                                "appParams": [
-                                        {
-                                                "name": "referredJob",
-                                                "value": ""
-                                        },
-                                        {
-                                                "name": "SSHPreference",
-                                                "value": "NO_PREFERENCE"
-                                        }
-                                ],
-                                "envParams": [],
-                                "cloudParams": {
-                                        "cloudRegionId": "2",
-                                        "accountId": "2",
-                                        "volumes": [
-                                                {
-                                                        "name": "RootVolume",
-                                                        "bootable": true,
-                                                        "size": null,
-                                                        "type": null,
-                                                        "iops": null
-                                                }
-                                        ],
-                                        "rootVolumeSize": "0",
-                                        "networkTypeName": "Production",
-                                        "cloudProperties": [
-                                                {
-                                                        "name": "FullClone",
-                                                        "value": "false"
-                                                },
-                                                {
-                                                        "name": "UserDatastoreCluster",
-                                                        "value": "Data.28"
-                                                },
-                                                {
-                                                        "name": "UserDataCenterName",
-                                                        "value": "infra"
-                                                },
-                                                {
-                                                        "name": "UserClusterName",
-                                                        "value": "DMZ"
-                                                },
-                                                {
-                                                        "name": "UserDatastore",
-                                                        "value": ""
-                                                },
-                                                {
-                                                        "name": "UserResourcePoolName",
-                                                        "value": ""
-                                                },
-                                                {
-                                                        "name": "UserTargetDeploymentFolder",
-                                                        "value": "/CloudCenter-grscarle"
-                                                }
-                                        ],
-                                        "instance": "Silver"
-                                }
-                        }
-                },
-                {
-                        "tierId": "97",
-                        "policyIds": null,
-                        "tagIds": [],
-                        "securityProfileIds": [],
-                        "parameters": {
-                                "appParams": [
-                                        {
-                                                "name": "referredJob",
-                                                "value": ""
-                                        },
-                                        {
-                                                "name": "SSHPreference",
-                                                "value": "NO_PREFERENCE"
-                                        }
-                                ],
-                                "envParams": [],
-                                "cloudParams": {
-                                        "cloudRegionId": "2",
-                                        "accountId": "2",
-                                        "volumes": [
-                                                {
-                                                        "name": "RootVolume",
-                                                        "bootable": true,
-                                                        "size": null,
-                                                        "type": null,
-                                                        "iops": null
-                                                }
-                                        ],
-                                        "rootVolumeSize": "0",
-                                        "networkTypeName": "Production",
-                                        "cloudProperties": [
-                                                {
-                                                        "name": "FullClone",
-                                                        "value": "false"
-                                                },
-                                                {
-                                                        "name": "UserDatastoreCluster",
-                                                        "value": "Data.28"
-                                                },
-                                                {
-                                                        "name": "UserDataCenterName",
-                                                        "value": "infra"
-                                                },
-                                                {
-                                                        "name": "UserClusterName",
-                                                        "value": "DMZ"
-                                                },
-                                                {
-                                                        "name": "UserDatastore",
-                                                        "value": ""
-                                                },
-                                                {
-                                                        "name": "UserResourcePoolName",
-                                                        "value": ""
-                                                },
-                                                {
-                                                        "name": "UserTargetDeploymentFolder",
-                                                        "value": "/CloudCenter-grscarle"
-                                                }
-                                        ],
-                                        "instance": "Silver"
-                                }
-                        }
                 }
         ],
         "timeZone": "GMT+10:00"
