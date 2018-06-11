@@ -1061,6 +1061,9 @@ function get_header_image_tag( $attr = array() ) {
 		}
 	}
 
+	// Force image fit to "fill" (i.e. stretch the image to required size instead of cropping)
+	$attr['style'] = 'object-fit: fill;';
+
 	$attr = array_map( 'esc_attr', $attr );
 	$html = '<img';
 
