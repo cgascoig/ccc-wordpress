@@ -8,3 +8,13 @@
       package: 
         name: apache2
         state: present
+
+- name: Configure Tasks
+  hosts: localhost
+  tags: 
+    - configure
+  tasks:
+    - name: Deploy wordpress files
+      copy:
+        src: wordpress/
+        dest: /var/www/html/
