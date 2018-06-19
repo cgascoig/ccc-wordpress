@@ -13,8 +13,8 @@
 
 upsteam app {
 
-{% set app_servers_list = app_servers.split(',') %}
-{% for app_server in CliqrTier_app_IP %}
+{% set app_servers_list = CliqrTier_app_IP.split(',') %}
+{% for app_server in app_servers_list %}
     server {{ app_server }}:80;
 {% endfor %}
 
