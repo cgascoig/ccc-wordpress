@@ -4,16 +4,27 @@
   tags:
     - deploy
   tasks:
-    - name: Install apache
+    - name: Install packages
       package: 
-        name: apache2
+        name: "{{ item }}"
         state: present
+      with_items:
+        - apache2
+        - php
+        - libapache2-mod-php
+        - php-mcrypt
+        - php-mysql
 
 - name: Configure Tasks
   hosts: localhost
   tags: 
     - configure
   tasks:
+    - name: Configure apache to prefer php index files
+      template:
+        src: mod-dir.conf
+        dest: /etc/apache2/mods-available/dir.conf
+        
     - name: Deploy wordpress files
       copy:
         src: wordpress/
