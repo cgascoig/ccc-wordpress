@@ -1,0 +1,10 @@
+---
+- name: Deploy Tasks
+  hosts: localhost
+  tags:
+    - deploy
+  tasks:
+    - name: Install nginx
+      package: 
+        name: nginx
+        state: present

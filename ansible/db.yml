@@ -1,0 +1,10 @@
+---
+- name: Deploy Tasks
+  hosts: localhost
+  tags:
+    - deploy
+  tasks:
+    - name: Install mysql
+      package: 
+        name: mysql-server
+        state: present

@@ -1,0 +1,10 @@
+---
+- name: Deploy Tasks
+  hosts: localhost
+  tags:
+    - deploy
+  tasks:
+    - name: Install apache
+      package: 
+        name: apache2
+        state: present
