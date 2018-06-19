@@ -4,7 +4,7 @@
   tags:
     - deploy
   tasks:
-    - name: Install nginx
+    - name: Install nginx (load balancer / reverse proxy)
       package: 
         name: nginx
         state: present
@@ -14,7 +14,11 @@
   tags: 
     - configure
   tasks:
-    - name: Setup load balancer / reverse proxy
+    - name: Setup nginx configuration
       template:
         src: nginx-default-site.j2
         dest: /etc/nginx/sites-available/default
+    - name: Reload nginx configuration
+      service:
+        name: nginx
+        state: reloaded
