@@ -12,7 +12,6 @@
         - apache2
         - php
         - libapache2-mod-php
-        - php-mcrypt
         - php-mysql
 
 - name: Configure Tasks
@@ -24,7 +23,7 @@
       template:
         src: mod-dir.conf
         dest: /etc/apache2/mods-available/dir.conf
-        
+
     - name: Deploy wordpress files
       copy:
         src: wordpress/
