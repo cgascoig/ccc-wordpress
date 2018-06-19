@@ -8,3 +8,13 @@
       package: 
         name: nginx
         state: present
+
+- name: Configure Tasks
+  hosts: localhost
+  tags: 
+    - configure
+  tasks:
+    - name: Setup load balancer / reverse proxy
+      template:
+        src: nginx-default-site.j2
+        dest: /etc/nginx/sites-available/default
