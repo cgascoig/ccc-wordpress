@@ -11,7 +11,7 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 
-upsteam app {
+upstream app {
 
 {% set app_servers_list = CliqrTier_app_IP.split(',') %}
 {% for app_server in app_servers_list %}
