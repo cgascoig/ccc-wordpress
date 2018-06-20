@@ -9,21 +9,16 @@
         name: "{{ item }}"
         state: present
       with_items:
-        - apache2
+        - httpd
         - php
-        - libapache2-mod-php
         - php-mysql
+        - php-gd
 
 - name: Configure Tasks
   hosts: localhost
   tags: 
     - configure
   tasks:
-    - name: Configure apache to prefer php index files
-      template:
-        src: mod-dir.conf
-        dest: /etc/apache2/mods-available/dir.conf
-
     - name: Deploy wordpress files
       copy:
         src: wordpress/
