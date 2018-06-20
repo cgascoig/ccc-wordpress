@@ -8,6 +8,16 @@
       package: 
         name: nginx
         state: present
+    - name: Disable firewalld
+      service:
+        name: firewalld
+        state: stopped
+        enabled: no
+    - name: Enable and start nginx
+      service:
+        name: nginx
+        state: started
+        enabled: yes
 
 - name: Configure Tasks
   hosts: localhost
@@ -17,7 +27,7 @@
     - name: Setup nginx configuration
       template:
         src: nginx-default-site.j2
-        dest: /etc/nginx/sites-available/default
+        dest: /etc/nginx/nginx.conf
     - name: Reload nginx configuration
       service:
         name: nginx
