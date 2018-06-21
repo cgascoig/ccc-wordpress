@@ -33,3 +33,7 @@
       copy:
         src: wordpress/
         dest: /var/www/html/
+    - name: Configure wordpress
+      template:
+        src: wp-config.php.j2
+        dest: /var/www/html/wp-config.php
