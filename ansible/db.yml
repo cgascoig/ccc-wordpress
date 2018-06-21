@@ -6,5 +6,10 @@
   tasks:
     - name: Install mysql
       package: 
-        name: mysql-server
+        name: "{{ item }}"
         state: present
+      with_items:
+        - mysql-server
+        - MySQL-python
+
+
