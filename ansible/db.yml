@@ -44,3 +44,8 @@
         login_user: root
         priv: "{{ DB_NAME }}.*:ALL"
         host: "%"
+    - name: Update URLs in DB
+      command: "{{ item }}"
+      with_items:
+        - "mysql -u {{ DB_USER }} -p{{ DB_PASSWORD }} -e "update wordpress.wp_options set option_value = 'http://{{ CliqrTier_nginx_1_PUBLIC_IP }}/{{ cliqrWebappAccessLink }}' where option_name = 'siteurl';"
+        - "mysql -u {{ DB_USER }} -p{{ DB_PASSWORD }} -e "update wordpress.wp_options set option_value = 'http://{{ CliqrTier_nginx_1_PUBLIC_IP }}/{{ cliqrWebappAccessLink }}' where option_name = 'home';"
