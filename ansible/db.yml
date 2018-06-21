@@ -43,3 +43,4 @@
         password: "{{ DB_PASSWORD }}"
         login_user: root
         priv: "{{ DB_NAME }}.*:ALL"
+        host: "*"
