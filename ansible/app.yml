@@ -30,7 +30,7 @@
     - configure
   tasks:
     - name: Deploy wordpress files
-      copy:
+      synchronize:
         src: wordpress/
         dest: /var/www/html/
     - name: Configure wordpress
