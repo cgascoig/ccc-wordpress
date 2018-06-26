@@ -14,6 +14,12 @@
         - php-mysql
         - php-gd
         - libselinux-python
+    - name: Install AppD PHP agent
+      shell: |
+        source /usr/local/cliqr/etc/userenv
+        export APPD_CONF_TIER=app
+        export APPD_CONF_NODE=app
+        rpm -i ${APPD_INSTALLER_URL}
     - name: Disable firewalld
       service:
         name: firewalld
