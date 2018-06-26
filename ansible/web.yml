@@ -4,10 +4,13 @@
   tags:
     - deploy
   tasks:
-    - name: Install nginx (load balancer / reverse proxy)
+    - name: Install packages
       package: 
-        name: nginx
+        name: "{{ item }}"
         state: present
+      with_items:
+        - nginx
+        - libselinux-python
     - name: Disable firewalld
       service:
         name: firewalld

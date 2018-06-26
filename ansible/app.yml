@@ -13,6 +13,7 @@
         - php
         - php-mysql
         - php-gd
+        - libselinux-python
     - name: Disable firewalld
       service:
         name: firewalld

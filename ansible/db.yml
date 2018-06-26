@@ -11,6 +11,7 @@
       with_items:
         - mysql-server
         - MySQL-python
+        - libselinux-python
     - name: Disable firewalld
       service:
         name: firewalld
