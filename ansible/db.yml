@@ -1,0 +1,53 @@
+---
+- name: Deploy Tasks
+  hosts: localhost
+  tags:
+    - deploy
+  tasks:
+    - name: Install mysql
+      package: 
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - mysql-server
+        - MySQL-python
+        - libselinux-python
+    - name: Disable firewalld
+      service:
+        name: firewalld
+        state: stopped
+        enabled: no
+      ignore_errors: yes
+    - name: Enable and start mysql
+      service:
+        name: mysqld
+        state: started
+        enabled: yes
+
+
+- name: Configure Tasks
+  hosts: localhost
+  tags: 
+    - configure
+  tasks:
+    - name: Copy database dump
+      copy:
+        src: wordpress.sql
+        dest: /tmp
+    - name: Import database
+      mysql_db:
+        name: "{{ DB_NAME }}"
+        state: import
+        target: /tmp/wordpress.sql
+    - name: Create database user
+      mysql_user:
+        name: "{{ DB_USER }}"
+        password: "{{ DB_PASSWORD }}"
+        login_user: root
+        priv: "{{ DB_NAME }}.*:ALL"
+        host: "%"
+    - name: Update URLs in DB
+      command: "{{ item }}"
+      with_items:
+        - "mysql  -e \"update wordpress.wp_options set option_value = 'http://{{ CliqrTier_web_IP }}/{{ cliqrWebappAccessLink }}' where option_name = 'siteurl';\""
+        - "mysql  -e \"update wordpress.wp_options set option_value = 'http://{{ CliqrTier_web_IP }}/{{ cliqrWebappAccessLink }}' where option_name = 'home';\""

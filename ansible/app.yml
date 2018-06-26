@@ -1,0 +1,41 @@
+---
+- name: Deploy Tasks
+  hosts: localhost
+  tags:
+    - deploy
+  tasks:
+    - name: Install packages
+      package: 
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - httpd
+        - php
+        - php-mysql
+        - php-gd
+        - libselinux-python
+    - name: Disable firewalld
+      service:
+        name: firewalld
+        state: stopped
+        enabled: no
+      ignore_errors: yes
+    - name: Enable and start httpd
+      service:
+        name: httpd
+        state: started
+        enabled: yes
+
+- name: Configure Tasks
+  hosts: localhost
+  tags: 
+    - configure
+  tasks:
+    - name: Deploy wordpress files
+      synchronize:
+        src: wordpress/
+        dest: /var/www/html/
+    - name: Configure wordpress
+      template:
+        src: wp-config.php.j2
+        dest: /var/www/html/wp-config.php
