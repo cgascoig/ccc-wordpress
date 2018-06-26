@@ -43,6 +43,10 @@ print('\n\nStarting new production deployment in CloudCenter')
 start_time = time.time()
 test_job = ccc.deployment_start(dep_name, CCC_APPLICATION_NAME, CCC_ENVIRONMENT_NAME, tag_names=["wp_production"], application_params=[
     ('BRANCH', BRANCH_NAME),
+    ('APPD_CONF_CONTROLLER_HOST'=os.environ['APPD_CONF_CONTROLLER_HOST']),
+    ('APPD_CONF_CONTROLLER_PORT'=os.environ['APPD_CONF_CONTROLLER_PORT']),
+    ('APPD_INSTALLER_URL'=os.environ['APPD_INSTALLER_URL']),
+    ('APPD_CONF_ACCESS_KEY'=os.environ['APPD_CONF_ACCESS_KEY']),
 
 ])
 
